@@ -1,10 +1,5 @@
 
 
-// import { useQuery } from "@tanstack/react-query";
-// import UseAxiosSecure from "./UseAxiosSecure";
-// import { useContext } from "react";
-// import { AuthContext } from "../Provider/AuthProvider";
-
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "./UseAxiosSecure";
 import { useContext } from "react";

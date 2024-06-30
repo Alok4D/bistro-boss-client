@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 
 const Login = () => {
@@ -69,9 +70,11 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
       </form>
-      <p><small>New Here?<Link to="/signUp">Sign Up</Link></small></p>
+      <p className="p-6"><small>New Here?<Link to="/signUp">Sign Up</Link></small></p>
+      <SocialLogin></SocialLogin>
     </div>
   </div>
+ 
 </div>
     </>
   

@@ -7,6 +7,18 @@ import Menu from "../Pages/Home/Menu/Menu";
 import Ordered from "../Pages/Orderd-Page/Ordered/Ordered";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import Dashboard from "../Layout/Dashboard/Dashboard";
+import Cart from "../Pages/Dashboard-pages/Cart/Cart";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
+import AllUsers from "../Pages/Dashboard-pages/All-Users/AllUsers";
+import AddItems from "../Pages/Dashboard-pages/Add-Items/AddItems";
+import AdminRoute from "./Admin-Route/AdminRoute";
+import ManageItems from "../Pages/Dashboard-pages/ManageItems/ManageItems";
+import UpdateItem from "../Pages/Dashboard-pages/Update-Pages/UpdateItem";
+import Payment from "../Pages/Dashboard-pages/Payment/Payment";
+import PaymentHistory from "../Pages/Dashboard-pages/Payment-history/PaymentHistory";
+import UserHome from "../Pages/Dashboard-pages/User_Home/UserHome";
+import AdminHome from "../Pages/Dashboard-pages/Admin-Home/AdminHome";
 
   export const router = createBrowserRouter([
     {
@@ -14,7 +26,7 @@ import SignUp from "../Pages/SignUp/SignUp";
       element: <Main></Main>,
       children: [
         {
-            path: '/home',
+            path: '/',
             element: <Home></Home>,
         },
         {
@@ -35,4 +47,54 @@ import SignUp from "../Pages/SignUp/SignUp";
         }
       ]
     },
+    {
+      path: 'dashboard',
+      element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+      children: [
+        // normal user routes
+        {
+          path: 'userHome',
+          element: <UserHome></UserHome>
+        },
+        {
+          path: 'cart',
+          element: <Cart></Cart>
+        },
+        {
+          path: 'payment',
+          element: <Payment></Payment>
+        },
+        {
+          path: 'paymentHistory',
+          element: <PaymentHistory></PaymentHistory>
+        },
+
+
+
+
+        //admin routes
+        {
+          path: 'adminHome',
+          element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+        }
+        ,
+        {
+          path: 'addItems',
+          element: <AdminRoute> <AddItems></AddItems></AdminRoute>
+        },
+        {
+          path: 'manageItems',
+          element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
+        },
+        {
+          path: 'updateItem/:id',
+          element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
+        //  loader: ({params}) => fetch(`https://bistro-boss-server-wheat-one.vercel.app/menu/${params.id}`)
+        },
+        {
+          path: 'users',
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
+        }
+      ]
+    }
   ]);
