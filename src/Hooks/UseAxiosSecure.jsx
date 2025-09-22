@@ -4,7 +4,7 @@ import UseAuth from "./UseAuth";
 
 
 export const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://bistro-boss-server-wheat-one.vercel.app/'
 })
 const UseAxiosSecure = () => {
 
